@@ -35,7 +35,8 @@ var sqlCommand = 'SELECT * FROM products';
 // });
 };
 
-// validateInput makes sure that the user is supplying only positive integers for their inputs
+
+// This function makes sure that the user is only inputting positive and non-decimal numbers.
 function validateInput(value) {
 	var integer = Number.isInteger(parseFloat(value));
 	var sign = Math.sign(value);
@@ -47,15 +48,7 @@ function validateInput(value) {
 	}
 }
 
-// function multiSearch() {
-//     var query = "SELECT artist FROM top5000 GROUP BY artist HAVING count(*) > 1";
-//     connection.query(query, function(err, res) {
-//       for (var i = 0; i < res.length; i++) {
-//         console.log(res[i].artist);
-//       }
-//       runSearch();
-//     });
-  
+// Starts the inquirer process for the customer.
 function productSearch() {
     inquirer.prompt([
         {
@@ -75,10 +68,11 @@ function productSearch() {
     ])  
     .then(function(answer) {
 
+        // Creating the variables needed.
         var item = answer.item_id;
 		var quantity = answer.quantity;
         
-        // Query db to confirm that the given item ID exists in the desired quantity
+        // Query the database to make sure the ID exists and the quantity can be fulfilled.
         var query = 'SELECT * FROM products WHERE ?';
 
         connection.query(query, {item_id: item}, function(err, res) {
@@ -93,32 +87,37 @@ function productSearch() {
             } else {
                 var productData = res[0];
                 
-            // If the quantity requested by the user is in stock
+                // If the quantity being asked for is available:
 				if (quantity <= productData.stock_quantity) {
-					console.log('Congratulations, the product you requested is in stock! Placing order!');
+					console.log('Thank you for your order!');
 
-					// Construct the updating query string
+					// Update the products table.
 					var updateQuery = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;
-					// console.log('updateQueryStr = ' + updateQueryStr);
+					
 
-					// Update the inventory
+					// Run the math to give a final price.
 					connection.query(updateQuery, function(err, res) {
 						if (err) throw err;
 
+                        console.log('');
+                        console.log('============================================================================');
 						console.log('Your oder has been placed! Your total is $' + productData.price * quantity);
 						console.log('Thank you for shopping with us!');
-						console.log("\n---------------------------------------------------------------------\n");
+						console.log('============================================================================');
 
 						// End the database connection
 						connection.end();
-					})
+                    })
+                    
+                // If there isn't enough quantity to fulfill customer's order, the return an error message.    
 				} else {
-					console.log('Sorry, there is not enough product in stock, your order can not be placed as is.');
-					console.log('Please modify your order.');
-					console.log("\n---------------------------------------------------------------------\n");
+                    console.log('');
+                    console.log('============================================================================');
+					console.log('Sorry, the quantity you selected is unavailable.');
+					console.log('Please adjust your quantity.');
+					console.log('============================================================================');
 
-                    // End the database connection
-                    // connection.end();
+                    // Displays the inventory again.
                     displayInventory();
 					
 				}
@@ -127,13 +126,13 @@ function productSearch() {
     });
 };
 
+//Needed a way to start the app, but end it and show the inventory if something was done wrong. 
 function runBamazon() {
-	// console.log('___ENTER runBamazon___');
 
 	// Display the available inventory
 	displayInventory();
 }
 
-// Run the application logic
+// Run the app.
 runBamazon();
-// displayInventory();
+
