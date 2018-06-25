@@ -17,9 +17,6 @@ function displayInventory() {
 
 var sqlCommand = 'SELECT * FROM products';
 
-// connection.connect(function(err) {
-//   if (err) { console.error('bamazonCustomer.js: ', err); }
-//   console.log('connected! ', connection.threadId);
 
   connection.query(sqlCommand, function(err, response) {
     if (err) { console.error('bamazonCustomer.js: ', err); }
@@ -32,7 +29,6 @@ var sqlCommand = 'SELECT * FROM products';
     console.log('============================================================================');
     productSearch();
   });
-// });
 };
 
 
