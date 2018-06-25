@@ -20,7 +20,7 @@ In order to run the CLI accurately, you will have to first install all of the de
 ```
 1. Start by creating your connection with MySQL, and run the schema.sql, and seeds.sql files in MySQL Workbench to set up your database. 
 ```
-![Database Setup](/images/database.png){:height="700px" width="400px"}
+![Database Setup](/images/database.png)
 
 ```
 2. Install all of the dependencies associated with the app. 
@@ -30,27 +30,27 @@ In order to run the CLI accurately, you will have to first install all of the de
 ```
 3. Using Node, run the bamazonCustomer.js file using the command line.
 ```
-![Run the App](/images/run.png =250x250)
+![Run the App](/images/run.png)
 
 ```
 4. User is then showed the available list of inventory in the store.
 ```
-![Inventory Available Table](/images/inventory.png =250x250)
+![Inventory Available Table](/images/inventory.png)
 
 ```
 5. User is then asked what item to purchase, as well as how much of it.
 ```
-![Inquirer](/images/questions.png =250x250)
+![Inquirer](/images/questions.png)
 
 ```
 6. User can then complete purchase of the items, and automatically update the quantity remaining in stock. 
 ```
-![Completed Purchase](/images/complete.png =250x250)
+![Completed Purchase](/images/complete.png)
 
 ```
 7. If user enters invalid input, user is shown a message indicated not enough is available. 
 ```
-![Incompleted Purchase](/images/incomplete.png =250x250)
+![Incompleted Purchase](/images/incomplete.png)
 
 
 
