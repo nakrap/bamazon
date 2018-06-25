@@ -19,27 +19,40 @@ Customers are first shown a table of the total quantities of every item in stock
 In order to run the CLI accurately, you will have to first install all of the dependencies, as well as set up the MySQL database. 
 ```
 1. Start by creating your connection with MySQL, and run the schema.sql, and seeds.sql files in MySQL Workbench to set up your database. 
-![Database Setup](images/database.png){:class="img-responsive"}
-
-2. Install all of the dependencies associated with the app. 
-![Dependencies Installed](images/dependencies.png){:class="img-responsive"}
-
-3. Using Node, run the bamazonCustomer.js file using the command line. 
-![Run the App](images/run.png){:class="img-responsive"}
-
-4. User is then showed the available list of inventory in the store.
-![Inventory Available Table](images/inventory.png){:class="img-responsive"}
-
-5. User is then asked what item to purchase, as well as how much of it.
-![Inquirer](images/questions.png){:class="img-responsive"}
-
-6. User can then complete purchase of the items, and automatically update the quantity remaining in stock. 
-![Completed Purchase](images/complete.png){:class="img-responsive"}
-
-7. If user enters invalid input, user is shown a message indicated not enough is available. 
-![Incompleted Purchase](images/incomplete.png){:class="img-responsive"}
+```
+![Database Setup](/images/database.png){:class="img-responsive"}
 
 ```
+2. Install all of the dependencies associated with the app. 
+```
+![Dependencies Installed](/images/dependencies.png){:class="img-responsive"}
+
+```
+3. Using Node, run the bamazonCustomer.js file using the command line.
+```
+![Run the App](/images/run.png){:class="img-responsive"}
+
+```
+4. User is then showed the available list of inventory in the store.
+```
+![Inventory Available Table](/images/inventory.png){:class="img-responsive"}
+
+```
+5. User is then asked what item to purchase, as well as how much of it.
+```
+![Inquirer](/images/questions.png){:class="img-responsive"}
+
+```
+6. User can then complete purchase of the items, and automatically update the quantity remaining in stock. 
+```
+![Completed Purchase](/images/complete.png){:class="img-responsive"}
+
+```
+7. If user enters invalid input, user is shown a message indicated not enough is available. 
+```
+![Incompleted Purchase](/images/incomplete.png){:class="img-responsive"}
+
+
 
 ## Break down:
 
