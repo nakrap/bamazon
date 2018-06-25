@@ -20,12 +20,12 @@ In order to run the CLI accurately, you will have to first install all of the de
 ```
 1. Start by creating your connection with MySQL, and run the schema.sql, and seeds.sql files in MySQL Workbench to set up your database. 
 ```
-![Database Setup](/images/database.png =250x250)
+![Database Setup](/images/database.png){:height="700px" width="400px"}
 
 ```
 2. Install all of the dependencies associated with the app. 
 ```
-![Dependencies Installed](/images/dependencies.png =250x250)
+![Dependencies Installed](/images/dependencies.png)
 
 ```
 3. Using Node, run the bamazonCustomer.js file using the command line.
